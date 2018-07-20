@@ -8,12 +8,15 @@ public class MyIterator {
 		ArrayList<String> cars = new ArrayList<> ();
 		cars.add("Tesla");
 		cars.add("Mercedes");
+		
+		
 //for loop
 		System.out.println("For Loop");
 		for (int i=0; i <cars.size(); i++) {
 		System.out.println(cars.get(i));
 	}
-//Advanced for loop
+		
+//Advanced for loop/ can't sort
 System.out.println("\n" + "Advanced For Loop");
 for (String car : cars) {
 	System.out.println(car);
@@ -37,7 +40,7 @@ while (iterator.hasNext()) {
 // List Iterator
 System.out.println("\n"+"List Iterator");
 ListIterator<String> li = cars.listIterator();
-while (li.hasNext()) {
+while (li.previous()) {
 	System.out.println(li.next());
 }
 
