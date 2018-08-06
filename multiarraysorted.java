@@ -1,3 +1,7 @@
+import java.lang.reflect.Array;
+import java.util.Arrays;
+import java.util.Comparator;
+
 public class multiarraysorted {
 
 
@@ -7,7 +11,7 @@ public class multiarraysorted {
 				{"Vale.Vicky","applesaregreat"},
 				{"Lane.Lois","supermaniscool"},
 				{"Kent.Clark","iamnotfromthisplanet"},
-				{"Wayne.Bruce","iheargotham"},
+				{"Wayne.Bruce","iheartgotham"},
 				{"Parker.Peter","nycisgreat99"},
 				{"Rogers.Steve","iamt000ldforthis"},
 				{"Luther.Lex","lookatmenow99"},
@@ -19,20 +23,24 @@ public class multiarraysorted {
 System.out.println("Total Number of users is: " + users.length);
 System.out.println("User Name" +"\t"+"Password");
 
+
+
 for (int i=0; i<users.length;i++) {
 	for(int j=0;j<2;j++)
 	{
-		System.out.print(users[i][j] +"\t");
+				System.out.print(users[i][j] +"\t");
 	}
-		System.out.print("\n");
+	System.out.print("\n");
 }
 
+
+
 for(int i=0;i<users.length;i++) {
-	for (int j=0;j<2;j++) {
+	for (int j=0;j<2;j++) {		
 	if (users[i][j] == "Rogers.Steve") {
 		System.out.println("\n" + "Steve Rogers is a valid user and has been found in the Array\n"
 				+ "and here are his details:\n" +
-				"Username " + users[6][0] + " \n" + "Password " + users[6][1] ) ;
+				"Username " + users[i][j] + " \n" + "Password " + users[i][j+1] ) ;
 		
 		}
 	}	

@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 public class MultiDimensionArray {
 	
 
@@ -18,7 +20,6 @@ public class MultiDimensionArray {
 				{"Linda Zoel","allroadsgosomewhere"},			
 				
 		};	
-		
        	System.out.println("User Name" +"\t"+"Password");
 		for (int i = 0; i < users.length; ++i) {
 	        for(int j = 0; j < users[i].length; ++j) {
