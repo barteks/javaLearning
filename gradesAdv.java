@@ -1,5 +1,7 @@
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.*;
+
 public class gradesAdv {
 	
 public static void main(String[] args) {
@@ -8,6 +10,7 @@ public static void main(String[] args) {
     double sumAverage = 0;
     ArrayList<String> allStudents=new ArrayList<String>();
     ArrayList<String> allGrades=new ArrayList<String>();
+    ArrayList<Double> allAverage=new ArrayList<Double>();
  while(flag) {
       flag = false;
       Scanner s = new Scanner (System.in);    
@@ -59,7 +62,7 @@ public static void main(String[] args) {
        }     
      allStudents.add(name);
      allGrades.add(grade);
-System.out.println(name + "'s average grade is: "+grade);
+     allAverage.add(average);
 System.out.println("Do you have another student's results; enter a Y for yes and a N for no ");
        String ans = s.next();
        if (ans.equals("Y")  || ans.equals("y") ) {
@@ -72,34 +75,32 @@ System.out.println("Do you have another student's results; enter a Y for yes and
        System.out.println("\n"+"List of students with grades");
        for (int j=0; j< allStudents.size(); j++) 
     	    {
-    	   System.out.println(allStudents.get(j) + " " + allGrades.get(j));
+    	   System.out.println(allStudents.get(j) + " - " + allGrades.get(j) + " - " + allAverage.get(j) + "%");
     	         };
+    	         
     	         System.out.println("\nGrading table");
-       if (allGrades.contains("A") || allGrades.contains("A-")) {
-    	   int gradeA = 0;
-    	   gradeA++;
-    	   System.out.println("'A' or 'A-'Student(s) - " +gradeA );
-       }
-       if (allGrades.contains("B+") || allGrades.contains("B") || allGrades.contains("B-")) {
-    	   int gradeB = 0;
-    	   gradeB++;
-    	   System.out.println("'B+' or 'B' or 'B-' Student(s) - " +gradeB );
-       } 
-       if (allGrades.contains("C+") || allGrades.contains("C") || allGrades.contains("C-")) {
-    	   int gradeC = 0;
-    	   gradeC++;
-    	   System.out.println("'C+' or 'C' or 'C-' Student(s) - " +gradeC );
-       } 
-       if (allGrades.contains("D+") || allGrades.contains("D") || allGrades.contains("D-")) {
-    	   int gradeD = 0;
-    	   gradeD++;
-    	   System.out.println("'D+' or 'D' or 'D-' Student(s) - " +gradeD );
-       } 
-       if (allGrades.contains("F")) {
-    	   int gradeF = 0;
-    	   gradeF++;
-    	   System.out.println("'F'' Student(s) - " +gradeF );
-       } 
+
+       
+       int occA = Collections.frequency(allGrades, "A");  
+       int occAM = Collections.frequency(allGrades, "A-");
+       int occBP = Collections.frequency(allGrades, "B+");  
+       int occB = Collections.frequency(allGrades, "B");
+       int occBM = Collections.frequency(allGrades, "B-");
+       int occCP = Collections.frequency(allGrades, "C+");  
+       int occC = Collections.frequency(allGrades, "C");
+       int occCM = Collections.frequency(allGrades, "C-");
+       int occDP = Collections.frequency(allGrades, "D+");  
+       int occD = Collections.frequency(allGrades, "D");
+       int occDM = Collections.frequency(allGrades, "D-");
+       int occF = Collections.frequency(allGrades, "F"); 
+       
+       System.out.println("A,A- users: " + (occA+occAM));
+       System.out.println("C+,C,C- users: " + (occBP+occB+occBM));
+       System.out.println("C+,C,C- users: " + (occCP+occC+occCM));
+       System.out.println("D+,D,D- users: " + (occDP+occD+occDM));
+       System.out.println("F users: " + occF);
+    	         
+
             };
    }
  
