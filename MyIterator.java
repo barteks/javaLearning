@@ -37,12 +37,7 @@ while (iterator.hasNext()) {
 	System.out.println(iterator.next());
 }
 
-// List Iterator
-System.out.println("\n"+"List Iterator");
-ListIterator<String> li = cars.listIterator();
-while (li.previous()) {
-	System.out.println(li.next());
-}
+
 
 //JAVA 8 Stream
 System.out.println("\n"+"J8 Stream");

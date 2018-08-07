@@ -16,11 +16,11 @@ public static void main(String[] args) {
       Scanner s = new Scanner (System.in);    
       System.out.println("Enter students name: ");      
       String name= s.next();
-      System.out.println("Enter " + name + "'s score for first subject: ");     
+      System.out.println("Enter " + name + "'s score for first subject (0-100): ");     
       int score1=s.nextInt();
-      System.out.println("Enter " + name + "'s score for second subject: "); 
+      System.out.println("Enter " + name + "'s score for second subject (0-100): "); 
       int score2=s.nextInt();  
-      System.out.println("Enter " + name + "'s score for third subject: "); 
+      System.out.println("Enter " + name + "'s score for third subject (0-100: "); 
       int score3=s.nextInt();
       double average = (score1+score2+score3)/3.0;
       sumAverage = sumAverage + average;
@@ -94,11 +94,11 @@ System.out.println("Do you have another student's results; enter a Y for yes and
        int occDM = Collections.frequency(allGrades, "D-");
        int occF = Collections.frequency(allGrades, "F"); 
        
-       System.out.println("A,A- users: " + (occA+occAM));
-       System.out.println("C+,C,C- users: " + (occBP+occB+occBM));
-       System.out.println("C+,C,C- users: " + (occCP+occC+occCM));
-       System.out.println("D+,D,D- users: " + (occDP+occD+occDM));
-       System.out.println("F users: " + occF);
+       System.out.println("A,A- students: " + (occA+occAM));
+       System.out.println("C+,C,C- students: " + (occBP+occB+occBM));
+       System.out.println("C+,C,C- students: " + (occCP+occC+occCM));
+       System.out.println("D+,D,D- students: " + (occDP+occD+occDM));
+       System.out.println("F students: " + occF);
     	         
 
             };
