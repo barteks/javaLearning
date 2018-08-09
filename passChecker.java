@@ -65,9 +65,9 @@ public class passChecker {
 			public void actionPerformed(ActionEvent e) {
 				String log = login.getText();
 				String pass = password.getText();
-			for(int i=0; i<users.length; i++) {
-				for (int j=0; j<users.length; j++) {
-					if ((pass == users[0][j]) && (log == users[1][j])) {
+				for(int i=0;i<users.length;i++) {
+					for (int j=0;j<2;j++) {		
+					if (users[i][j] == log) {
 					checked.setText("Your password is valid!");
 					checked.setBackground(Color.green);
 				}
@@ -78,7 +78,7 @@ public class passChecker {
 						
 			}
 						}
-			}
+			}	
 		});
 					
 							
