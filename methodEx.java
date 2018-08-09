@@ -21,6 +21,10 @@ public static double averageGrade (int number, int number2, int number3) {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		double average;
+		int counterA = 0;
+		int counterF = 0;
+		boolean ans = true;
+		while (ans == true) {
 Scanner s = new Scanner(System.in);
 System.out.println("Enter your name");
 String name = s.nextLine();
@@ -34,8 +38,29 @@ System.out.println(name + " " + score1 + " " + score2 + " " + score3);
 average = averageGrade(score1, score2, score3);
 System.out.println(averageGrade(100,500,200));
 System.out.println(assignGrade(average));
+//if (assignGrade(average) == 'A' ) {counterA++;}
+//if (assignGrade(average) == 'F' ) {counterF++;}
+//System.out.println(counterA);
 
-
+switch (assignGrade(average)) {
+case 'A': 
+	counterA++;
+	break;
+case 'f':
+	counterF++;
+	break;
+}
+System.out.println(counterA);
+Scanner a = new Scanner(System.in);
+System.out.println("continue, y or n?");
+String anwser = a.next();
+if ((anwser.charAt(0) == 'Y') || (anwser.charAt(0) == 'y')) {
+	ans = true;
+}
+	else {
+		ans = false;
+}
+		}
+	}
 	}
 
-}
