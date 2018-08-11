@@ -22,7 +22,7 @@ public class MultiDimensionArray {
 		};	
        	System.out.println("User Name" +"\t"+"Password");
 		for (int i = 0; i < users.length; ++i) {
-	        for(int j = 0; j < users[i].length; ++j) {
+	        for(int j = 0; j < users[i].length; j++) {
 	        	
 	           System.out.print(users[i][j]+"\t")
 	           ;
