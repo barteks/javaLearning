@@ -2,79 +2,90 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class week5Method {
-	
+		
+public static ArrayList<String> allGrades=new ArrayList<String>();
+public static Scanner s = new Scanner (System.in);  
+
 	public static void main(String[] args) {
-	    Scanner s = new Scanner (System.in);  
 		boolean flag = true;
-	    int counterA = 0;
-	    int counterB = 0;
-	    int counterC = 0;
-	    int counterD = 0;
-	    int counterF = 0;
-	    double sumAverage = 0;
+	    int counterA =0,counterB =0,counterC =0,counterD=0,counterF=0;
+	    double classAve = 0.0;
 	    ArrayList<String> allStudents=new ArrayList<String>();
-	    ArrayList<String> allGrades=new ArrayList<String>();
 	    ArrayList<Double> allAverage=new ArrayList<Double>();
+	    
+	    
 	 while(flag) {
 	      flag = false;
-
-		  	String name = getUserName();
-		  	int[] grades = getUsersGrades();	  	
-		  	double aveScore = getAverageScore(grades[0],grades[1],grades[2]);
-
-	      sumAverage = sumAverage + aveScore;
-	     allStudents.add(name);
-	     allGrades.add(getLtrGrade(aveScore));
+	      //invoke method to get get user name
+	      String name = getUserName();
+	      //invoke method to get user scores
+		  int[] grades = getUsersGrades();
+		  //invoke method to calculate average student score
+	      double aveScore = getAverageScore(grades[0],grades[1],grades[2]);
+		  	
+	      //add Student Name to Array List from the method
+	      allStudents.add(name);
+	     // add Student letter grade to Array List
+	     //allGrades.add(getLtrGrade(aveScore));
+	     // add Student average score to array list
 	     allAverage.add(aveScore);
+	     // calculate combined class score
+	     classAve = displayClassReport(aveScore) + classAve;
+	     
+	     getLtrList(getLtrGrade(aveScore));
+	     
+	     
+	     
 	     switch (getLtrGrade(aveScore)) {
 		   case "A": 
-		   	 	counterA++;
-		   	break;
-		   case "A-": 
-			   	counterA++;
+			   counterA++; 
 		   break;
+		   case "A-": 
+			   counterA++; 
+			   break;
 		   case "B+": 
 				counterB++;
-			break;
+				break;
 		   case "B": 
 			   	counterB++;
-			   break;
+			  break;
 		   case "B-": 
-			    counterB++;
-			   break;
+			   counterB++;
+				  break;
 		   case "C+": 
 			   	counterC++;
-			   break;
+			  break;
 		   case "C": 
-			   	counterC++;
-			   break;
+				counterC++;
+				  break;
 		   case "C-": 
-			   	counterC++;  	
-			   break;
+				counterC++;
+				  break;	
 		   case "D+": 
 			   	counterD++;
 			   break;
 		   case "D": 
-			   	counterD++;
-			   	break;
+			   counterD++;
+			   break;
 		   case "D-": 
-			    counterD++;  	
-			    break;
+			   counterD++;
+			   break;
 		   case "F":
 			   	counterF++;
 			   	break;
-		   }
+		   };
+	     
 	System.out.println("Do you have another student's results; enter a Y for yes and a N for no ");
 	       String ans = s.next();
 	       if (ans.equals("Y")  || ans.equals("y") ) {
 	    	   flag = true;
-	       };
+	       }
 	       
-	       
-	       if (flag == false) {
-	    	   
+	       if (flag == false) {	    	   
  
-	       double classAverage = sumAverage/allStudents.size();
+	    //calculate class average using method and class size
+	       double classAverage = classAve/allStudents.size();
+	       System.out.println("\nResults:");
 	       System.out.println ("\n"+"This class has " + allStudents.size() + " student(s) and the average score is:  " + classAverage + " %");
 	       System.out.println("\n"+"List of students with grades");
 	       for (int j=0; j< allStudents.size(); j++) 
@@ -82,14 +93,17 @@ public class week5Method {
 	    	   System.out.println(allStudents.get(j) + " - " + allGrades.get(j) + " - " + allAverage.get(j) + "%");
 	    	         };
 	    	         
-	    	         System.out.println("\nGrading table");
-   System.out.println("A,A- students: " + counterA);
-	       System.out.println("B+,B,B- students: " + counterB);
-	       System.out.println("C+,C,C- students: " + counterC);
-	       System.out.println("D+,D,D- students: " + counterD);
-	       System.out.println("F students: " + counterF);
-	    	         
-
+	    	   System.out.println("\nGrading table:");
+	    	   System.out.println("A,A- students: " + counterA);
+	    	   System.out.println("B+,B,B- students: " + counterB);
+	    	   System.out.println("C+,C,C- students: " + counterC);
+	    	   System.out.println("D+,D,D- students: " + counterD);
+	    	   System.out.println("F students: " + counterF);
+	    	   System.out.println("\nGrade List:");
+	    	   System.out.println(allGrades);
+	    	   
+	    	   
+s.close();
 	            };
 	   }
 	 
@@ -138,11 +152,7 @@ public static String getLtrGrade (double average) {
     return grade;
 }
 
-
-
-
 public static String getUserName () {
-	Scanner s = new Scanner (System.in);    
     System.out.println("Enter students name: ");      
     String name= s.next();
     return name;
@@ -150,7 +160,6 @@ public static String getUserName () {
 
 public static int[] getUsersGrades () {
 	int[] score = new int[3];
-	Scanner s = new Scanner(System.in);
     System.out.println("Enter score for first subject (0-100): ");     
     score[0]=s.nextInt();
     System.out.println("Enter s score for second subject (0-100): "); 
@@ -161,10 +170,19 @@ public static int[] getUsersGrades () {
 }
 
 public static double getAverageScore(int score1, int score2, int score3) {
-double average = (score1+score2+score3)/3.0;
+double studentAverage = (score1+score2+score3)/3.0;
+return studentAverage;
+}
+
+public static double displayClassReport(double averageScore) {
+double average = averageScore;
 return average;
 }
 
+public static ArrayList<String> getLtrList(String grades) {
+allGrades.add(grades);
+return allGrades;
+}
 
 
 

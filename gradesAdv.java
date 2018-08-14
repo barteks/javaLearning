@@ -4,18 +4,7 @@ import java.util.*;
 
 public class gradesAdv {
 
-public static char getLtrGrade (double average) {
-	char grade;
-	if ((average >= 90 ) &&(average <=100)) {
-		grade = 'A';
-	}
-		else {
-			grade = 'F';
-		}
-	return grade;
-	}
 
-}
 	
 public static void main(String[] args) {
 	String grade =" ";
